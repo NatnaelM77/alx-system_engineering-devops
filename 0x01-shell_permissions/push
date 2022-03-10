@@ -1,2 +1,5 @@
 #!/bin/bash
-str=
+msg="Update via upload"
+git add .
+git commit -m "$msg"
+git push
