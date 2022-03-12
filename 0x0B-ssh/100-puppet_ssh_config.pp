@@ -1,5 +1,6 @@
 # connect to a server Execute a command
 
-exec { 'echo "PasswordAuthentication no\nIdentityFile ~/.ssh/school" >> /etc/ssh/ssh_config':
-        path    => '/bin/'
+file { 'ssh_config':
+  path => '/etc/ssh/ssh_config',
+  content => 'PasswordAuthentication no\nIdentityFile ~/.ssh/school',
 }
