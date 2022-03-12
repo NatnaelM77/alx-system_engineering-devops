@@ -1,0 +1,7 @@
+#!/bin/bash
+read a
+echo "$a"
+msg="Update via upload"
+git add .
+git commit -m "$msg"
+git push
