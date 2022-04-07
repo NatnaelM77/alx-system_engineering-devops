@@ -15,6 +15,6 @@ file { '/var/html/index.html':
 }
 
 service { 'nginx':
-  ensure => running,
+  ensure  => running,
   package => Package['nginx'],
 }
