@@ -4,10 +4,10 @@
 for a given employee ID, returns information about his/her TODO list progress.
 """
 
-import json
-import requests
 from sys import argv
+import json
 from print import printf
+import requests
 
 id = argv[1]
 todos = []
