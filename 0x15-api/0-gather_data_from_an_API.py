@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-
 """Returns to-do list information for a given employee ID."""
-
 import json
-from print import printf
+import print
 import requests
-from sys import argv
+import sys
 
-id = argv[1]
+id = sys.argv[1]
 todos = []
 req_user = requests.get(f'https://jsonplaceholder.typicode.com/users/{id}')
 user = json.loads(req_user.text).get('name')
@@ -19,4 +17,4 @@ for todo in res:
     if todo.get('userId') == id and todo.get('completed'):
         todos += [todo.get('title')]
 
-printf({'name': user, 'task': len(todos)}, todos)
+print.printf({'name': user, 'task': len(todos)}, todos)
