@@ -1,15 +1,14 @@
 #!/usr/bin/python3
+"""returns information about his/her todos list progress
+"""
 
-"""
-Returns to-do list information for a given employee ID.
-"""
 import json
-import print
+from print import printf
 import requests
-import sys
+from sys import argv
 
 if __name__ == '__main__':
-    id = int(sys.argv[1])
+    id = int(argv[1])
     todos = []
     req_user = requests.get(
         f'https://jsonplaceholder.typicode.com/users/{id}')
@@ -22,4 +21,4 @@ if __name__ == '__main__':
         if todo.get('userId') == id and todo.get('completed'):
             todos += [todo.get('title')]
 
-    print.printf({'name': user, 'task': len(todos)}, todos)
+    printf({'name': user, 'task': len(todos)}, todos)
