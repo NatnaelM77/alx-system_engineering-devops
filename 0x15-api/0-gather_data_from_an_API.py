@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""returns information about his/her todos list progress
+"""Returns information about his/her todos list progress.
 """
 
 import json
