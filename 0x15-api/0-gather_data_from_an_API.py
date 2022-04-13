@@ -1,8 +1,8 @@
 #!/usr/bin/python3
+"""getting data from an api
+"""
 
-"""returns information about a user to-do list progress"""
-
-import json
+import  json
 from print import printf
 import requests
 from sys import argv
@@ -22,3 +22,4 @@ if __name__ == '__main__':
             todos += [todo.get('title')]
 
     printf({'name': user, 'task': len(todos)}, todos)
+
