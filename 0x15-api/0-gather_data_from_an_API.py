@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 
-"""Returns information about his/her todos list progress.
-"""
-
-import json
-from print import printf
-import requests
-from sys import argv
+"""Returns information about his/her todos list progress."""
 
 if __name__ == '__main__':
+    import json
+    from print import printf
+    import requests
+    from sys import argv
+
     id = int(argv[1])
     todos = []
     req_user = requests.get(
