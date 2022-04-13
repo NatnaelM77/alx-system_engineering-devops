@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
-'''
-returns information about his/her todos list progress
-'''
+"""returns information about his/her todos list progress
+"""
 
 import json
 from print import printf
