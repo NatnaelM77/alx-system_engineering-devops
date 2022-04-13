@@ -1,22 +1,21 @@
 #!/usr/bin/python3
-"""Returns to-do list information for a given employee ID."""
-import json
-from print import printf
+"""getting data from an api
+"""
+
 import requests
 from sys import argv
 
 if __name__ == '__main__':
-    id = int(argv[1])
-    todos = []
-    req_user = requests.get(
-            f'https://jsonplaceholder.typicode.com/users/{id}')
-    user = json.loads(req_user.text).get('name')
-
-    req_todo = requests.get(f'https://jsonplaceholder.typicode.com/todos/')
-    res = json.loads(req_todo.text)
-
-    for todo in res:
-        if todo.get('userId') == id and todo.get('completed'):
-            todos += [todo.get('title')]
-
-    printf({'name': user, 'task': len(todos)}, todos)
+    endpoint = "https://jsonplaceholder.typicode.com"
+    userId = argv[1]
+    user = requests.get(endpoint + "users/{}".
+                        format(userId), verify=False).json()
+    todo = requests.get(endpoint + "todos?userId={}".
+                        format(userId), verify=False).json()
+    completed_tasks = []
+    for task in todo:
+        if task.get('completed') is True:
+            completed_tasks.append(task.get('title'))
+    print("Employee {} is done with tasks({}/{}):".
+          format(user.get('name'), len(completed_tasks), len(todo)))
+    print("\n".join("\t {}".format(task) for task in completed_tasks))
