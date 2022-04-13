@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+
 """
-returns information about his/her todos list progress
+given employee ID, returns information about his/her to-do list progress.
 """
+
 import json
 from print import printf
 import requests
