@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""returns information about a user to-do list progress
+
+"""
+returns information about a user to-do list progress
 """
 
 import json
