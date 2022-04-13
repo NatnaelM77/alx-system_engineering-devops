@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""given employee ID, returns information about his/her to-do list progress.
+"""returns information about a user to-do list progress
 """
 
 import json
