@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""getting data from an api
-"""
-
+"""Returns information about his/her todos list progress."""
 import json
 from print import printf
 import requests
