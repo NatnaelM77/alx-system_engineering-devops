@@ -9,14 +9,6 @@ import requests
 from sys import argv
 
 
-def printf(user_info, tasks):
-    print(f"{user_info.get('name')} is done with tasks("
-          f"{user_info.get('task')}/{user_info.get('task_completed')}):")
-    if tasks:
-        for task in tasks:
-            print('\t %s' % task)
-
-
 if __name__ == '__main__':
     todos = []
     id = int(argv[1])
