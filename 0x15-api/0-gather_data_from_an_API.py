@@ -1,12 +1,15 @@
 #!/usr/bin/python3
-"""Returns information about his/her to-do list progress."""
+"""
+Using a REST API, for a given employee ID and returns information
+about his/her to-do list progress.
+"""
 import requests
-from sys import argv
+import sys
 
 
 if __name__ == '__main__':
     todos = []
-    id = int(argv[1])
+    id = int(sys.argv[1])
     user = requests.get(
         f'https://jsonplaceholder.typicode.com/users/{id}').json().get('name')
     req_todo = requests.get(
