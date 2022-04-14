@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""getting data from an api
-"""
 
-import  json
+"""returns information about his/her to-do list progress.
+    """
+
+import json
 import requests
 from sys import argv
 
@@ -10,7 +11,7 @@ if __name__ == '__main__':
     id = int(argv[1])
     todos = []
     req_user = requests.get(
-            f'https://jsonplaceholder.typicode.com/users/{id}')
+        f'https://jsonplaceholder.typicode.com/users/{id}')
     user = json.loads(req_user.text).get('name')
 
     req_todo = requests.get(f'https://jsonplaceholder.typicode.com/todos/')
@@ -21,4 +22,3 @@ if __name__ == '__main__':
             todos += [todo.get('title')]
 
     printf({'name': user, 'task': len(todos)}, todos)
-
