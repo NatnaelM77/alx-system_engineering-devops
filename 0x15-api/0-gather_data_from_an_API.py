@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""getting data from an api
+"""returns information about his/her to-do list progress.
 """
 
 
