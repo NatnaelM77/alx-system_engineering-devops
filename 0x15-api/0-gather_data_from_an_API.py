@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 
-"""returns information about his/her to-do list progress.
-    """
+"""
+returns information about his/her to-do list progress.
+"""
 
 import json
+from print import printf
 import requests
 from sys import argv
 
