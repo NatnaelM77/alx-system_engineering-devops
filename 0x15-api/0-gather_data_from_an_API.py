@@ -2,6 +2,8 @@
 """getting data from an api
 """
 
+import json
+from print import printf
 import requests
 from sys import argv
 
