@@ -4,7 +4,6 @@ Using a REST API, for a given employee ID and returns information
 about his/her TODO list progress.
 """
 
-import print
 import requests
 import sys
 
