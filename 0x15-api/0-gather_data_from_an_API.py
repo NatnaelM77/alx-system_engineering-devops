@@ -3,6 +3,8 @@
 Using a REST API, for a given employee ID and returns information
 about his/her TODO list progress.
 """
+
+from print import printf
 import requests
 import sys
 
