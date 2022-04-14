@@ -1,10 +1,6 @@
 #!/usr/bin/python3
-
-"""
-export data in the CSV format information about his/her to-do list progress.
-"""
-
-import print
+"""Exports to-do list information for a given employee ID to CSV format."""
+import csv
 import requests
 from sys import argv
 
