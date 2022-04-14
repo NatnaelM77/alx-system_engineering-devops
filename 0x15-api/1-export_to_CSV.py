@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-export data in the CSV format information about his/her to-do list progress. 
+export data in the CSV format information about his/her to-do list progress.
 """
 
 import json
