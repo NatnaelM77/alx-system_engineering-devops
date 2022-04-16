@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
-"""get data from api
+"""
+Returns information about his/her TODO list progress.
 """
 import requests
 from sys import argv
