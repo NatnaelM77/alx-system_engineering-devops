@@ -15,6 +15,7 @@ if __name__ == "__main__":
     for todo in req_todo:
         if todo.get("userId") == user_id and todo.get("completed"):
             todos += [todo.get("title")]
-    print("Employee {} is done with tasks({}/{}):".format(user.get("name"), len(todos), len(req_todo)))
+    print("Employee {} is done with tasks({}/{}):".format(user.get("name"),
+          len(todos), len(req_todo)))
     for task in todos:
         print("\t %s" % task)
