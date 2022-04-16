@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-export data in the JSON format information about 
+export data in the JSON format information about
 his/her to-do list progress.
 """
 
@@ -21,6 +21,7 @@ if __name__ == "__main__":
         task_dct = {user_id: []}
         for tasks in req_tasks:
             task_dct[user_id] += [{"task": tasks["title"],
-                              "completed": tasks["completed"], "username": username}]
+                                   "completed": tasks["completed"],
+                                   "username": username}]
         data = json.dumps(task_dct)
         json_file.write(data)
