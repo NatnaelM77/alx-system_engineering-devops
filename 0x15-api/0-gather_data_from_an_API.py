@@ -1,8 +1,13 @@
+#!/usr/bin/python3
 
+"""get data from api
+"""
+import requests
+from sys import argv
 
 if __name__ == "__main__":
     todos = []
-    id = int(sys.argv[1])
+    id = int(argv[1])
     user = requests.get(
         f'https://jsonplaceholder.typicode.com/users/{id}').json()
     req_todo = requests.get(
