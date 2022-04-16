@@ -11,7 +11,6 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    todos = []
     user_id = int(argv[1])
     base_url = "https://jsonplaceholder.typicode.com/"
     username = requests.get(
