@@ -8,7 +8,6 @@ import json
 import requests
 from sys import argv
 
-
 if __name__ == "__main__":
     base_url = "https://jsonplaceholder.typicode.com/"
     users = requests.get("{}users".format(base_url)).json()
@@ -22,7 +21,7 @@ if __name__ == "__main__":
             task_dct[user_id] = []
             for tasks in req_tasks:
                 task_dct[user_id] += [{"username": username,
-										"task": tasks["title"],
-										"completed": tasks["completed"]}]
+                                       "task": tasks["title"],
+                                       "completed": tasks["completed"]}]
         data = json.dumps(task_dct)
         json_file.write(data)
