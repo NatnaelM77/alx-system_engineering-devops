@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Using a REST API, for a given employee ID and returns information
-about his/her TODO list progress.
+about his/her to-do list progress.
 """
 import requests
 import sys
