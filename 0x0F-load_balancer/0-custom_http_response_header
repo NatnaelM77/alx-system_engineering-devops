@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 # Configure nginx HTTP response contains a custom header
-sed -i '/index index.html index.htm index.nginx-debian.html/a \\tadd_header X-Served-By {$HOSTNAME;}' /etc/nginx/sites-available/default
+apt-get update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+sed -i '/index index.html index.htm index.nginx-debian.html/a \\tadd_header X-Served-By '$HOSTNAME';' /etc/nginx/sites-available/default
 service nginx reload 
