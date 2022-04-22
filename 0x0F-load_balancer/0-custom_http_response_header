@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+sed "3i\\tadd_header X-Served-By web-01;" /etc/nginx/sites-available/default
