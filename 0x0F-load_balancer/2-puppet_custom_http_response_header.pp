@@ -1,5 +1,5 @@
-# install nginx and configure it
+# install nginx and configure it and its header
 exec { 'creating custom headers':
-  command  => 'apt-get update apt-get -y install nginx ufw allow 'Nginx HTTP' sed -i '/index index.html index.htm index.nginx-debian.html/a \\tadd_header X-Served-By '$HOSTNAME';\n \terror_page 404 /404.html;\n \trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default service nginx reload',
+  command  => 'name=$(uname -n); sudo apt-get update; sudo apt-get -y install nginx; sudo ufw --force enable; sudo ufw allow "Nginx HTTP"; sudo sed -i -e "s+location / {+location / {\n\t\tadd_header X-Served-By \"$name\";+" /etc/nginx/sites-available/default; sudo service nginx restart;',
   provider => shell,
 }
