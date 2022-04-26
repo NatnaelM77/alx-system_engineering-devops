@@ -14,23 +14,18 @@ def recurse(subreddit, hot_list=[], after=None):
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     header = {'User-Agent': '0x16-api_advanced:2-recurse:v1.0.0 (by '
                             '/u/natnaelm77)'}
-    request = req.get(url, headers=header, params={'after': after},
+    params = {
+        "after": after
+    }
+    request = req.get(url, headers=header, params=params,
                       allow_redirects=False)
     if request.status_code == 404:
         return None
     request = request.json().get('data')
-    after = request.get('after', None)
-    if request is None or (
-            len(request) > 0 and request[0].get('kind') != 't3'):
-        if len(hot_list) == 0:
-            return None
-        return hot_list
-    else:
-        hot_list.append(post.get('data').get('title') for post in request.get(
-                'children'))
+    after = request.get('after')
+    
+    hot_list.append(post.get('data').get('title') for post in request.get(
+            'children'))
     if after is not None:
         return recurse(subreddit, hot_list, after)
-    else:
-        if len(hot_list) == 0:
-            return None
-        return hot_list
+    return hot_list
