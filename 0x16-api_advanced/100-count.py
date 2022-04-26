@@ -1,26 +1,20 @@
 #!/usr/bin/python3
+"""Contains the count_words function"""
+import requests
 
-"""
-module that prints counts of given words found in hot posts
-"""
 
-import requests as req
+def count_words(subreddit, word_list, found_list=[], after=None):
+    '''Prints counts of given words found in hot posts of a given subreddit.
 
-def count_words(subreddit, word_list):
-    """Prints counts of given words found in hot posts of a given subreddit.
-       Args:
-           subreddit (str): The subreddit to search.
-           word_list (list): The list of words to search for in post titles.
-           found_list (obj): Key/value pairs of words/counts.
-           after (str): The parameter for the next page of the API results.
-    """
-    url = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit,
-                                                                 after)
-    header = {'User-Agent': '0x16-api_advanced:100-count:v1.0.0 (by '
-                            '/u/natnaelm77)'}
-    posts = req.get(url, headers=header, params=params,
-                      allow_redirects=False)
-
+    Args:
+        subreddit (str): The subreddit to search.
+        word_list (list): The list of words to search for in post titles.
+        found_list (obj): Key/value pairs of words/counts.
+        after (str): The parameter for the next page of the API results.
+    '''
+    user_agent = {'User-agent': 'test45'}
+    posts = requests.get('http://www.reddit.com/r/{}/hot.json?after={}'
+                         .format(subreddit, after), headers=user_agent)
     if after is None:
         word_list = [word.lower() for word in word_list]
 
@@ -46,5 +40,4 @@ def count_words(subreddit, word_list):
                                      reverse=True):
                 print('{}: {}'.format(key, value))
     else:
-        return
-
+        returns
