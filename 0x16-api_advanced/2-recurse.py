@@ -18,9 +18,11 @@ def recurse(subreddit, hot_list=[], after=None):
     if request.status_code == 404:
         return None
     request = request.json().get('data')
-    after = request.get('after')
     hot_list.append(post.get('data').get('title') for post in request.get(
             'children'))
     if after is not None:
         return recurse(subreddit, hot_list, after)
-    return hot_list
+    else:
+        if len(hot_list) == 0:
+            return None
+        return hot_list
