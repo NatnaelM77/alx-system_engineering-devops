@@ -14,7 +14,8 @@ def recurse(subreddit, hot_list=[], after=None):
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     header = {'User-Agent': '0x16-api_advanced:2-recurse:v1.0.0 (by '
                             '/u/natnaelm77)'}
-    request = req.get(url, headers=header, allow_redirects=False)
+    request = req.get(url, headers=header, params={'after': after},
+                      allow_redirects=False)
     if request.status_code == 404:
         return None
     request = request.json().get('data')
