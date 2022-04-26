@@ -15,5 +15,5 @@ def number_of_subscribers(subreddit):
     if subreddit is None or type(subreddit) is not str:
         return 0
     request = req.get(url, headers=header).json()
-    subscribers = request.get('data').get('subscribers')
+    subscribers = request.get('data', {}).get('subscribers', 0)
     return subscribers
