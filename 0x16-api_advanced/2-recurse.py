@@ -20,8 +20,14 @@ def recurse(subreddit, hot_list=[], after=None):
         return None
     request = request.json().get('data')
     after = request.get('after', None)
-    hot_list.append(post.get('data').get('title') for post in request.get(
-            'children'))
+    if request is None or (
+            len(request) > 0 and request[0].get('kind') != 't3'):
+        if len(hot_list) == 0:
+            return None
+        return hot_list
+    else:
+        hot_list.append(post.get('data').get('title') for post in request.get(
+                'children'))
     if after is not None:
         return recurse(subreddit, hot_list, after)
     else:
