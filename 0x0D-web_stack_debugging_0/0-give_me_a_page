@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# apache2 web server to fix empty respond error
+echo "ServerName localhost" >> /etc/apache2.conf
+service apache2 start
