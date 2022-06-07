@@ -5,7 +5,7 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get -y install haproxy
 
-sudo echo "ENABLED=1" >> /etc/default/haproxy
+echo "ENABLED=1" >> /etc/default/haproxy
 cd /etc/haproxy; sudo cp -v haproxy.cfg haproxy.cfg.copy
 
 sudo printf %s '
@@ -20,4 +20,4 @@ backend web-backend
         server 1643-web-02 34.148.116.47:80 check
 ' >> haproxy.cfg
 
-sudo service haproxy reload
+sudo service haproxy start
