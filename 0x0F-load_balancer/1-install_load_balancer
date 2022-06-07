@@ -15,7 +15,7 @@ fronted http
 
 backend web-backend
         balance roundrobin
-        server 1643-web-02 34.74.168.65:80 check
+        server 1643-web-01 34.74.168.65:80 check
         server 1643-web-02 34.148.116.47:80 check
 ' >> /etc/haproxy/haproxy.cfg
 
