@@ -5,6 +5,7 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get -y install haproxy
 
+sudo echo "ENABLED=1" >> /etc/default/haproxy
 cd /etc/haproxy; sudo cp -v haproxy.cfg haproxy.cfg.copy
 
 sudo printf %s '
