@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # Install load balancer
 
-sudo apt-get update
-sudo apt-get -y install haproxy
+add-apt-repository -y ppa:vbernat/haproxy-1.5
+apt-get update
+apt-get install -y haproxy
 
 echo "ENABLED=1" >> /etc/default/haproxy
 sudo cp /etc/haproxy/haproxy.cfg  /etc/haproxy/haproxy.cfg.copy
 
-sudo printf %s '
+printf %s '
 
 fronted http
         bind :80
